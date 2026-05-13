@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxence Mauge - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- macOS Menu Bar -->
+    <div class="menu-bar">
+        <div class="menu-left">
+            <div class="menu-item apple-logo">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                    <path d="M11.5 6.5c0-1.5 1.2-2.2 1.3-2.3-.7-1-1.8-1.2-2.2-1.2-1-.1-1.8.6-2.3.6-.5 0-1.2-.6-2-.6-1 0-2 .6-2.5 1.5-1.1 1.9-.3 4.7.8 6.2.5.7 1.2 1.5 2 1.5.8 0 1.1-.5 2-.5s1.2.5 2 .5c.8 0 1.4-.7 1.9-1.4.6-.8.8-1.6.8-1.6s-1.5-.6-1.5-2.2zm-1.3-3.8c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8z"/>
+                </svg>
+            </div>
+            <div class="menu-item active">Maxence</div>
+            <div class="menu-item">File</div>
+            <div class="menu-item">Edit</div>
+            <div class="menu-item">View</div>
+            <div class="menu-item">Window</div>
+        </div>
+        <div class="menu-right">
+            <div class="menu-item time" id="current-time">11:00</div>
+        </div>
+    </div>
+
+    <!-- Desktop Background -->
+    <div class="desktop">
+        <!-- About Window -->
+        <div class="window" id="about-window" data-window="about">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="control close" data-action="close"></span>
+                    <span class="control minimize" data-action="minimize"></span>
+                    <span class="control maximize" data-action="maximize"></span>
+                </div>
+                <div class="window-title">About Me</div>
+            </div>
+            <div class="window-content">
+                <div class="profile-section">
+                    <div class="profile-image-placeholder">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="40" fill="#2a2a2a"/>
+                            <circle cx="40" cy="32" r="12" fill="#0066ff"/>
+                            <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#0066ff"/>
+                        </svg>
+                    </div>
+                    <h1>Maxence Mauge</h1>
+                    <p class="subtitle">GCSE Student</p>
+                </div>
+                <div class="info-section">
+                    <div class="info-item">
+                        <span class="info-label">Age:</span>
+                        <span class="info-value">15 years old</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Background:</span>
+                        <span class="info-value">French & Hong Konger</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Experience:</span>
+                        <span class="info-value">Lived 12.5 years in France</span>
+                    </div>
+                </div>
+                <div class="bio-section">
+                    <p>A passionate student with diverse interests spanning interior design, sports, fashion, and travel. Currently pursuing GCSE studies while exploring creative and athletic endeavors.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests Window -->
+        <div class="window" id="interests-window" data-window="interests">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="control close" data-action="close"></span>
+                    <span class="control minimize" data-action="minimize"></span>
+                    <span class="control maximize" data-action="maximize"></span>
+                </div>
+                <div class="window-title">My Interests</div>
+            </div>
+            <div class="window-content">
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="24" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <line x1="8" y1="20" x2="40" y2="20" stroke="#0066ff" stroke-width="2"/>
+                                <line x1="24" y1="12" x2="24" y2="36" stroke="#0066ff" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Interior Design</h3>
+                        <p>Passionate about creating beautiful and functional spaces with attention to detail and aesthetics.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="16" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M24 8 L24 24 L32 32" stroke="#0066ff" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Tennis</h3>
+                        <p>Dedicated tennis player who enjoys the strategy, athleticism, and competitive nature of the sport.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="16" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M24 8 L24 24" stroke="#0066ff" stroke-width="2"/>
+                                <path d="M16 16 L24 24 L32 16" stroke="#0066ff" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <h3>Football</h3>
+                        <p>Enthusiastic football fan and player, appreciating both the teamwork and individual skill involved.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M16 12 L24 8 L32 12 L32 28 L24 32 L16 28 Z" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <line x1="24" y1="8" x2="24" y2="32" stroke="#0066ff" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Fashion</h3>
+                        <p>Interested in style, trends, and personal expression through clothing and accessories.</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M8 24 C8 16 12 8 24 8 C36 8 40 16 40 24 C40 32 36 40 24 40 C12 40 8 32 8 24" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <circle cx="24" cy="24" r="4" fill="#0066ff"/>
+                            </svg>
+                        </div>
+                        <h3>Holidays</h3>
+                        <p>Love exploring new places, experiencing different cultures, and creating memorable travel experiences.</p>
+                    </div>
+                    <div class="interest-card photo-placeholder">
+                        <div class="interest-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="24" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <circle cx="24" cy="24" r="6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <circle cx="34" cy="18" r="2" fill="#0066ff"/>
+                            </svg>
+                        </div>
+                        <h3>Photo Gallery</h3>
+                        <p>Space reserved for your personal photos and memories. Add them later!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Window -->
+        <div class="window" id="contact-window" data-window="contact">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="control close" data-action="close"></span>
+                    <span class="control minimize" data-action="minimize"></span>
+                    <span class="control maximize" data-action="maximize"></span>
+                </div>
+                <div class="window-title">Contact</div>
+            </div>
+            <div class="window-content">
+                <div class="contact-section">
+                    <h2>Let's Connect</h2>
+                    <p class="contact-intro">Feel free to reach out and connect with me on social media!</p>
+                    
+                    <div class="contact-links">
+                        <a href="https://www.instagram.com/maxm_1304" target="_blank" class="contact-link">
+                            <div class="contact-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="23" cy="9" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">Instagram</div>
+                                <div class="contact-value">@maxm_1304</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/maxence-mauge" target="_blank" class="contact-link">
+                            <div class="contact-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                    <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M10 14v10M10 11v1M14 14v10M14 14c0-2 1-3 3-3s3 1 3 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-label">LinkedIn</div>
+                                <div class="contact-value">Maxence Mauge</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dock -->
+    <div class="dock">
+        <div class="dock-item" data-window="about" title="About Me">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
+                <circle cx="24" cy="18" r="6" fill="#0066ff"/>
+                <path d="M12 38c0-6.6 5.4-12 12-12s12 5.4 12 12" fill="#0066ff"/>
+            </svg>
+            <span class="dock-label">About</span>
+        </div>
+        <div class="dock-item" data-window="interests" title="My Interests">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="8" width="32" height="32" rx="4" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
+                <path d="M16 20h16M16 24h16M16 28h10" stroke="#0066ff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="dock-label">Interests</span>
+        </div>
+        <div class="dock-item" data-window="contact" title="Contact">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="12" width="32" height="24" rx="2" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
+                <path d="M8 12l16 12 16-12" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="dock-label">Contact</span>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
