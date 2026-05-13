@@ -192,4 +192,18 @@ window.addEventListener('load', () => {
     }
 });
 
+// Gallery functionality - open gallery when clicking interest cards
+document.querySelectorAll('.interest-card[data-gallery]').forEach(card => {
+    card.addEventListener('click', () => {
+        const galleryType = card.dataset.gallery;
+        const galleryWindow = document.getElementById(`${galleryType}-gallery-window`);
+        
+        if (galleryWindow) {
+            galleryWindow.style.display = 'block';
+            galleryWindow.classList.remove('minimized');
+            bringToFront(galleryWindow);
+        }
+    });
+});
+
 console.log('Portfolio loaded successfully! 🚀');

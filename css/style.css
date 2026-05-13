@@ -453,6 +453,53 @@ body {
     color: var(--concrete-text);
 }
 
+/* Football Gallery Window */
+#football-gallery-window {
+    top: 80px;
+    left: 300px;
+    width: 700px;
+    height: 600px;
+}
+
+.gallery-section {
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: var(--blue-primary);
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.photo-item {
+    background: var(--concrete-light);
+    border: 2px solid var(--blue-primary);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md), var(--shadow-blue);
+    border-color: var(--blue-hover);
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 /* Dock */
 .dock {
     position: fixed;
