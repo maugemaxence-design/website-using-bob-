@@ -1,209 +1,144 @@
 // Portfolio Interactive Features
 // Made with Bob
 
-// Update time in menu bar
-function updateTime() {
-    const timeElement = document.getElementById('current-time');
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    timeElement.textContent = `${hours}:${minutes}`;
-}
-
-// Initialize time and update every minute
-updateTime();
-setInterval(updateTime, 60000);
-
-// Window Management
-const windows = document.querySelectorAll('.window');
-let activeWindow = null;
-let isDragging = false;
-let currentX;
-let currentY;
-let initialX;
-let initialY;
-let xOffset = 0;
-let yOffset = 0;
-
-// Make windows draggable
-windows.forEach(window => {
-    const header = window.querySelector('.window-header');
-    
-    header.addEventListener('mousedown', dragStart);
-    
-    // Bring window to front on click
-    window.addEventListener('mousedown', () => {
-        bringToFront(window);
-    });
-});
-
-function dragStart(e) {
-    if (e.target.classList.contains('control')) return;
-    
-    const window = e.target.closest('.window');
-    if (window.classList.contains('maximized')) return;
-    
-    activeWindow = window;
-    initialX = e.clientX - xOffset;
-    initialY = e.clientY - yOffset;
-    
-    const transform = window.style.transform;
-    if (transform && transform !== 'none') {
-        const matrix = new DOMMatrix(transform);
-        xOffset = matrix.m41;
-        yOffset = matrix.m42;
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
-    } else {
-        const rect = window.getBoundingClientRect();
-        xOffset = rect.left - window.offsetLeft;
-        yOffset = rect.top - window.offsetTop;
-    }
-    
-    isDragging = true;
-}
-
-document.addEventListener('mousemove', drag);
-document.addEventListener('mouseup', dragEnd);
-
-function drag(e) {
-    if (isDragging && activeWindow) {
+// Smooth scroll navigation
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
         e.preventDefault();
-        currentX = e.clientX - initialX;
-        currentY = e.clientY - initialY;
-        xOffset = currentX;
-        yOffset = currentY;
         
-        setTranslate(currentX, currentY, activeWindow);
-    }
-}
-
-function dragEnd() {
-    if (isDragging && activeWindow) {
-        const rect = activeWindow.getBoundingClientRect();
-        activeWindow.style.left = rect.left + 'px';
-        activeWindow.style.top = rect.top + 'px';
-        activeWindow.style.transform = 'none';
-    }
-    
-    initialX = currentX;
-    initialY = currentY;
-    isDragging = false;
-}
-
-function setTranslate(xPos, yPos, el) {
-    el.style.transform = `translate(${xPos}px, ${yPos}px)`;
-}
-
-function bringToFront(window) {
-    windows.forEach(w => w.style.zIndex = '10');
-    window.style.zIndex = '100';
-}
-
-// Window Controls
-document.querySelectorAll('.control').forEach(control => {
-    control.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const action = control.dataset.action;
-        const window = control.closest('.window');
+        // Remove active class from all links
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         
-        switch(action) {
-            case 'close':
-                closeWindow(window);
-                break;
-            case 'minimize':
-                minimizeWindow(window);
-                break;
-            case 'maximize':
-                maximizeWindow(window);
-                break;
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Get target section
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        // Smooth scroll to section
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
 
-function closeWindow(window) {
-    window.style.display = 'none';
-}
+// Update active nav link on scroll
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav-link');
 
-function minimizeWindow(window) {
-    window.classList.add('minimized');
-    setTimeout(() => {
-        window.style.display = 'none';
-    }, 300);
-}
-
-function maximizeWindow(window) {
-    if (window.classList.contains('maximized')) {
-        window.classList.remove('maximized');
-    } else {
-        window.classList.add('maximized');
-    }
-}
-
-// Dock Functionality
-document.querySelectorAll('.dock-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const windowId = item.dataset.window + '-window';
-        const window = document.getElementById(windowId);
+function updateActiveNav() {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
         
-        if (window) {
-            if (window.style.display === 'none' || window.classList.contains('minimized')) {
-                window.style.display = 'block';
-                window.classList.remove('minimized');
-                bringToFront(window);
-            } else {
-                bringToFront(window);
-            }
+        if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
         }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// Throttle scroll event for performance
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+        window.cancelAnimationFrame(scrollTimeout);
+    }
+    
+    scrollTimeout = window.requestAnimationFrame(() => {
+        updateActiveNav();
     });
 });
 
-// Smooth scroll for window content
-document.querySelectorAll('.window-content').forEach(content => {
-    content.style.scrollBehavior = 'smooth';
-});
-
-// Add keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    // Cmd/Ctrl + W to close active window
-    if ((e.metaKey || e.ctrlKey) && e.key === 'w') {
-        e.preventDefault();
-        const activeWin = document.querySelector('.window[style*="z-index: 100"]');
-        if (activeWin) {
-            closeWindow(activeWin);
-        }
-    }
-    
-    // Cmd/Ctrl + M to minimize active window
-    if ((e.metaKey || e.ctrlKey) && e.key === 'm') {
-        e.preventDefault();
-        const activeWin = document.querySelector('.window[style*="z-index: 100"]');
-        if (activeWin) {
-            minimizeWindow(activeWin);
-        }
-    }
-});
-
-// Initialize - show About window by default
+// Initialize on load
 window.addEventListener('load', () => {
-    const aboutWindow = document.getElementById('about-window');
-    if (aboutWindow) {
-        bringToFront(aboutWindow);
+    updateActiveNav();
+    
+    // Add fade-in animation to sections
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+});
+
+// Add keyboard navigation
+document.addEventListener('keydown', (e) => {
+    const currentActive = document.querySelector('.nav-link.active');
+    const currentIndex = Array.from(navLinks).indexOf(currentActive);
+    
+    if (e.key === 'ArrowDown' && currentIndex < navLinks.length - 1) {
+        e.preventDefault();
+        navLinks[currentIndex + 1].click();
+    } else if (e.key === 'ArrowUp' && currentIndex > 0) {
+        e.preventDefault();
+        navLinks[currentIndex - 1].click();
     }
 });
 
-// Gallery functionality - open gallery when clicking interest cards
-document.querySelectorAll('.interest-card[data-gallery]').forEach(card => {
-    card.addEventListener('click', () => {
-        const galleryType = card.dataset.gallery;
-        const galleryWindow = document.getElementById(`${galleryType}-gallery-window`);
-        
-        if (galleryWindow) {
-            galleryWindow.style.display = 'block';
-            galleryWindow.classList.remove('minimized');
-            bringToFront(galleryWindow);
+// Photo Modal Functionality
+const footballCard = document.getElementById('football-card');
+const photoModal = document.getElementById('photo-modal');
+const modalClose = document.querySelector('.modal-close');
+
+if (footballCard && photoModal) {
+    // Open modal when clicking football card
+    footballCard.addEventListener('click', () => {
+        photoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    });
+    
+    // Close modal when clicking X
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            photoModal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        });
+    }
+    
+    // Close modal when clicking outside
+    photoModal.addEventListener('click', (e) => {
+        if (e.target === photoModal) {
+            photoModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
     });
-});
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && photoModal.style.display === 'block') {
+            photoModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
 
 console.log('Portfolio loaded successfully! 🚀');

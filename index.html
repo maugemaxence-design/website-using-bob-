@@ -10,87 +10,188 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- macOS Menu Bar -->
-    <div class="menu-bar">
-        <div class="menu-left">
-            <div class="menu-item apple-logo">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
-                    <path d="M11.5 6.5c0-1.5 1.2-2.2 1.3-2.3-.7-1-1.8-1.2-2.2-1.2-1-.1-1.8.6-2.3.6-.5 0-1.2-.6-2-.6-1 0-2 .6-2.5 1.5-1.1 1.9-.3 4.7.8 6.2.5.7 1.2 1.5 2 1.5.8 0 1.1-.5 2-.5s1.2.5 2 .5c.8 0 1.4-.7 1.9-1.4.6-.8.8-1.6.8-1.6s-1.5-.6-1.5-2.2zm-1.3-3.8c.4-.5.7-1.2.6-1.9-.6 0-1.3.4-1.7.9-.4.4-.7 1.1-.6 1.8.7.1 1.3-.3 1.7-.8z"/>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>MM</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#home" class="nav-link active">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"/>
                 </svg>
-            </div>
-            <div class="menu-item active">Maxence</div>
-            <div class="menu-item">File</div>
-            <div class="menu-item">Edit</div>
-            <div class="menu-item">View</div>
-            <div class="menu-item">Window</div>
-        </div>
-        <div class="menu-right">
-            <div class="menu-item time" id="current-time">11:00</div>
-        </div>
-    </div>
+                <span>Home</span>
+            </a></li>
+            <li><a href="#about" class="nav-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="12" cy="9" r="3" fill="currentColor"/>
+                    <path d="M6 18c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="currentColor"/>
+                </svg>
+                <span>About</span>
+            </a></li>
+            <li><a href="#interests" class="nav-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 10h10M7 14h10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Interests</span>
+            </a></li>
+            <li><a href="#contact" class="nav-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <path d="M3 5l9 7 9-7" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>Contact</span>
+            </a></li>
+        </ul>
+    </nav>
 
-    <!-- Desktop Background -->
-    <div class="desktop">
-        <!-- About Window -->
-        <div class="window" id="about-window" data-window="about">
-            <div class="window-header">
-                <div class="window-controls">
-                    <span class="control close" data-action="close"></span>
-                    <span class="control minimize" data-action="minimize"></span>
-                    <span class="control maximize" data-action="maximize"></span>
-                </div>
-                <div class="window-title">About Me</div>
-            </div>
-            <div class="window-content">
-                <div class="profile-section">
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="container">
+                <div class="hero">
                     <div class="profile-image-placeholder">
-                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                            <circle cx="40" cy="40" r="40" fill="#2a2a2a"/>
-                            <circle cx="40" cy="32" r="12" fill="#0066ff"/>
-                            <path d="M20 65c0-11 9-20 20-20s20 9 20 20" fill="#0066ff"/>
+                        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                            <circle cx="60" cy="60" r="60" fill="#2a2a2a"/>
+                            <circle cx="60" cy="48" r="18" fill="#0066ff"/>
+                            <path d="M30 97.5c0-16.5 13.5-30 30-30s30 13.5 30 30" fill="#0066ff"/>
                         </svg>
                     </div>
-                    <h1>Maxence Mauge</h1>
-                    <p class="subtitle">GCSE Student</p>
-                </div>
-                <div class="info-section">
-                    <div class="info-item">
-                        <span class="info-label">Age:</span>
-                        <span class="info-value">15 years old</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Background:</span>
-                        <span class="info-value">French & Hong Konger</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Experience:</span>
-                        <span class="info-value">Lived 12.5 years in France, now lives near London</span>
-                    </div>
-                </div>
-                <div class="bio-section">
-                    <p>A passionate student with diverse interests spanning interior design, sports, fashion, and travel. Currently pursuing GCSE studies while exploring creative and athletic endeavors.</p>
+                    <h1 class="hero-title">Maxence Mauge</h1>
+                    <p class="hero-subtitle">GCSE Student | Designer | Athlete</p>
+                    <p class="hero-description">A passionate student with diverse interests spanning interior design, sports, fashion, and travel.</p>
+                    <a href="#about" class="cta-button">Learn More</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Interests Window -->
-        <div class="window" id="interests-window" data-window="interests">
-            <div class="window-header">
-                <div class="window-controls">
-                    <span class="control close" data-action="close"></span>
-                    <span class="control minimize" data-action="minimize"></span>
-                    <span class="control maximize" data-action="maximize"></span>
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <!-- Map outline around London -->
+                                    <path d="M 8 12 L 12 8 L 20 8 L 28 12 L 36 10 L 40 14 L 40 32 L 36 36 L 28 36 L 20 32 L 12 34 L 8 30 Z" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Location pin -->
+                                    <path d="M 24 16 L 24 28" stroke="#0066ff" stroke-width="2"/>
+                                    <circle cx="24" cy="16" r="4" fill="#0066ff"/>
+                                    <circle cx="24" cy="16" r="6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Pulse rings -->
+                                    <circle cx="24" cy="16" r="8" stroke="#0066ff" stroke-width="1" opacity="0.5" fill="none"/>
+                                    <circle cx="24" cy="16" r="10" stroke="#0066ff" stroke-width="1" opacity="0.3" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Location</h3>
+                            <p>Near London, UK</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <!-- Cake base -->
+                                    <rect x="10" y="28" width="28" height="8" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Cake middle layer -->
+                                    <rect x="12" y="22" width="24" height="6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Cake top layer -->
+                                    <rect x="14" y="16" width="20" height="6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Candles -->
+                                    <line x1="18" y1="16" x2="18" y2="10" stroke="#0066ff" stroke-width="2"/>
+                                    <line x1="24" y1="16" x2="24" y2="8" stroke="#0066ff" stroke-width="2"/>
+                                    <line x1="30" y1="16" x2="30" y2="10" stroke="#0066ff" stroke-width="2"/>
+                                    <!-- Flames -->
+                                    <path d="M 16 10 L 18 6 L 20 10" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <path d="M 22 8 L 24 4 L 26 8" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <path d="M 28 10 L 30 6 L 32 10" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <!-- Frosting decoration -->
+                                    <path d="M 12 28 Q 14 26 16 28 Q 18 26 20 28 Q 22 26 24 28 Q 26 26 28 28 Q 30 26 32 28 Q 34 26 36 28" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Birthday</h3>
+                            <p>April 13 (15 years old)</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <!-- Eiffel Tower (left side) -->
+                                    <path d="M 12 38 L 14 28 L 16 18 L 17 12 L 16 18 L 14 28 L 12 38" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <path d="M 20 38 L 18 28 L 16 18 L 17 12 L 18 18 L 20 28 L 22 38" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <line x1="12" y1="28" x2="20" y2="28" stroke="#0066ff" stroke-width="1.5"/>
+                                    <line x1="14" y1="18" x2="18" y2="18" stroke="#0066ff" stroke-width="1.5"/>
+                                    <circle cx="17" cy="10" r="2" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <!-- Hong Kong skyline (right side) -->
+                                    <rect x="26" y="24" width="4" height="14" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <rect x="31" y="18" width="4" height="20" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <rect x="36" y="22" width="4" height="16" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                    <!-- Building details -->
+                                    <line x1="27" y1="26" x2="29" y2="26" stroke="#0066ff" stroke-width="1"/>
+                                    <line x1="32" y1="20" x2="34" y2="20" stroke="#0066ff" stroke-width="1"/>
+                                    <line x1="37" y1="24" x2="39" y2="24" stroke="#0066ff" stroke-width="1"/>
+                                    <!-- Ground line -->
+                                    <line x1="8" y1="38" x2="42" y2="38" stroke="#0066ff" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Background</h3>
+                            <p>French & Hong Konger</p>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <!-- Book cover -->
+                                    <rect x="12" y="10" width="24" height="28" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                    <!-- Book spine -->
+                                    <line x1="16" y1="10" x2="16" y2="38" stroke="#0066ff" stroke-width="2"/>
+                                    <!-- Pages -->
+                                    <line x1="20" y1="16" x2="32" y2="16" stroke="#0066ff" stroke-width="1.5"/>
+                                    <line x1="20" y1="20" x2="32" y2="20" stroke="#0066ff" stroke-width="1.5"/>
+                                    <line x1="20" y1="24" x2="32" y2="24" stroke="#0066ff" stroke-width="1.5"/>
+                                    <line x1="20" y1="28" x2="28" y2="28" stroke="#0066ff" stroke-width="1.5"/>
+                                    <!-- Bookmark -->
+                                    <path d="M 30 10 L 30 20 L 28 18 L 26 20 L 26 10" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3>Experience</h3>
+                            <p>Lived 12.5 years in France</p>
+                        </div>
+                    </div>
+                    <div class="bio-box">
+                        <h3>My Story</h3>
+                        <p>A passionate student with diverse interests spanning interior design, sports, fashion, and travel. Currently pursuing GCSE studies while exploring creative and athletic endeavors. I bring a unique multicultural perspective, having lived in France for most of my life before moving to the UK.</p>
+                    </div>
                 </div>
-                <div class="window-title">My Interests</div>
             </div>
-            <div class="window-content">
+        </section>
+
+        <!-- Interests Section -->
+        <section id="interests" class="section">
+            <div class="container">
+                <h2 class="section-title">My Interests</h2>
                 <div class="interests-grid">
                     <div class="interest-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <rect x="8" y="12" width="32" height="24" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <line x1="8" y1="20" x2="40" y2="20" stroke="#0066ff" stroke-width="2"/>
-                                <line x1="24" y1="12" x2="24" y2="36" stroke="#0066ff" stroke-width="2"/>
+                                <!-- Room outline -->
+                                <rect x="6" y="10" width="36" height="28" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Floor -->
+                                <line x1="6" y1="38" x2="42" y2="38" stroke="#0066ff" stroke-width="2"/>
+                                <!-- Sofa -->
+                                <rect x="10" y="28" width="12" height="8" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <line x1="10" y1="28" x2="10" y2="24" stroke="#0066ff" stroke-width="1.5"/>
+                                <line x1="22" y1="28" x2="22" y2="24" stroke="#0066ff" stroke-width="1.5"/>
+                                <!-- Coffee table -->
+                                <rect x="26" y="30" width="10" height="6" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Window -->
+                                <rect x="14" y="14" width="8" height="8" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <line x1="18" y1="14" x2="18" y2="22" stroke="#0066ff" stroke-width="1.5"/>
+                                <line x1="14" y1="18" x2="22" y2="18" stroke="#0066ff" stroke-width="1.5"/>
+                                <!-- Lamp -->
+                                <circle cx="38" cy="16" r="2" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <line x1="38" y1="18" x2="38" y2="28" stroke="#0066ff" stroke-width="1.5"/>
                             </svg>
                         </div>
                         <h3>Interior Design</h3>
@@ -99,19 +200,37 @@
                     <div class="interest-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="16" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <path d="M24 8 L24 24 L32 32" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Tennis racket -->
+                                <ellipse cx="20" cy="18" rx="10" ry="12" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Racket strings -->
+                                <line x1="15" y1="18" x2="25" y2="18" stroke="#0066ff" stroke-width="1"/>
+                                <line x1="20" y1="12" x2="20" y2="24" stroke="#0066ff" stroke-width="1"/>
+                                <line x1="17" y1="15" x2="23" y2="21" stroke="#0066ff" stroke-width="1"/>
+                                <line x1="23" y1="15" x2="17" y2="21" stroke="#0066ff" stroke-width="1"/>
+                                <!-- Handle -->
+                                <rect x="18" y="28" width="4" height="12" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Tennis ball -->
+                                <circle cx="34" cy="30" r="6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 30 27 Q 34 30 38 27" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <path d="M 30 33 Q 34 30 38 33" stroke="#0066ff" stroke-width="1.5" fill="none"/>
                             </svg>
                         </div>
                         <h3>Tennis</h3>
                         <p>Dedicated tennis player who enjoys the strategy, athleticism, and competitive nature of the sport.</p>
                     </div>
-                    <div class="interest-card" data-gallery="football">
+                    <div class="interest-card clickable" id="football-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="16" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <path d="M24 8 L24 24" stroke="#0066ff" stroke-width="2"/>
-                                <path d="M16 16 L24 24 L32 16" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Soccer ball -->
+                                <circle cx="24" cy="24" r="14" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Pentagon in center -->
+                                <path d="M 24 14 L 28 18 L 26 23 L 22 23 L 20 18 Z" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Hexagon patterns -->
+                                <path d="M 24 14 L 24 10" stroke="#0066ff" stroke-width="1.5"/>
+                                <path d="M 28 18 L 32 16" stroke="#0066ff" stroke-width="1.5"/>
+                                <path d="M 26 23 L 28 28" stroke="#0066ff" stroke-width="1.5"/>
+                                <path d="M 22 23 L 20 28" stroke="#0066ff" stroke-width="1.5"/>
+                                <path d="M 20 18 L 16 16" stroke="#0066ff" stroke-width="1.5"/>
                             </svg>
                         </div>
                         <h3>Football</h3>
@@ -120,8 +239,18 @@
                     <div class="interest-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M16 12 L24 8 L32 12 L32 28 L24 32 L16 28 Z" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <line x1="24" y1="8" x2="24" y2="32" stroke="#0066ff" stroke-width="2"/>
+                                <!-- Hanger hook -->
+                                <path d="M 24 8 Q 24 12 24 14" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <circle cx="24" cy="8" r="2" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Hanger bar -->
+                                <line x1="10" y1="14" x2="38" y2="14" stroke="#0066ff" stroke-width="2"/>
+                                <!-- T-shirt outline -->
+                                <path d="M 14 14 L 14 18 L 12 20 L 12 36 L 36 36 L 36 20 L 34 18 L 34 14" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Sleeves -->
+                                <path d="M 14 18 L 8 22 L 8 28 L 12 26" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 34 18 L 40 22 L 40 28 L 36 26" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Collar -->
+                                <path d="M 20 14 L 20 18 L 24 20 L 28 18 L 28 14" stroke="#0066ff" stroke-width="1.5" fill="none"/>
                             </svg>
                         </div>
                         <h3>Fashion</h3>
@@ -130,123 +259,99 @@
                     <div class="interest-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <path d="M8 24 C8 16 12 8 24 8 C36 8 40 16 40 24 C40 32 36 40 24 40 C12 40 8 32 8 24" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <circle cx="24" cy="24" r="4" fill="#0066ff"/>
+                                <!-- Beach/horizon line -->
+                                <line x1="6" y1="32" x2="42" y2="32" stroke="#0066ff" stroke-width="2"/>
+                                <!-- Waves -->
+                                <path d="M 6 35 Q 12 33 18 35 Q 24 37 30 35 Q 36 33 42 35" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <path d="M 6 38 Q 12 36 18 38 Q 24 40 30 38 Q 36 36 42 38" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Palm tree trunk -->
+                                <path d="M 28 32 Q 26 28 26 20 Q 26 16 28 12" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Palm leaves -->
+                                <path d="M 28 12 Q 22 10 18 8" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 28 12 Q 24 8 22 6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 28 12 Q 28 6 28 4" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 28 12 Q 32 8 34 6" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <path d="M 28 12 Q 34 10 38 8" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Sun -->
+                                <circle cx="38" cy="14" r="4" stroke="#0066ff" stroke-width="1.5" fill="none"/>
                             </svg>
                         </div>
                         <h3>Holidays</h3>
                         <p>Love exploring new places, experiencing different cultures, and creating memorable travel experiences.</p>
                     </div>
-                    <div class="interest-card photo-placeholder">
+                    <div class="interest-card">
                         <div class="interest-icon">
                             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <rect x="8" y="12" width="32" height="24" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <circle cx="24" cy="24" r="6" stroke="#0066ff" stroke-width="2" fill="none"/>
-                                <circle cx="34" cy="18" r="2" fill="#0066ff"/>
+                                <!-- Camera body -->
+                                <rect x="10" y="16" width="28" height="20" rx="2" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <!-- Lens -->
+                                <circle cx="24" cy="26" r="7" stroke="#0066ff" stroke-width="2" fill="none"/>
+                                <circle cx="24" cy="26" r="4" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Viewfinder -->
+                                <rect x="18" y="12" width="12" height="4" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Flash -->
+                                <rect x="32" y="18" width="4" height="3" stroke="#0066ff" stroke-width="1.5" fill="none"/>
+                                <!-- Shutter button -->
+                                <circle cx="34" cy="24" r="1.5" fill="#0066ff"/>
+                                <!-- Strap -->
+                                <line x1="10" y1="18" x2="6" y2="18" stroke="#0066ff" stroke-width="1.5"/>
+                                <line x1="38" y1="18" x2="42" y2="18" stroke="#0066ff" stroke-width="1.5"/>
                             </svg>
                         </div>
-                        <h3>Photo Gallery</h3>
-                        <p>Space reserved for your personal photos and memories. Add them later!</p>
+                        <h3>Photography</h3>
+                        <p>Capturing moments and memories through the lens, exploring visual storytelling.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Contact Window -->
-        <div class="window" id="contact-window" data-window="contact">
-            <div class="window-header">
-                <div class="window-controls">
-                    <span class="control close" data-action="close"></span>
-                    <span class="control minimize" data-action="minimize"></span>
-                    <span class="control maximize" data-action="maximize"></span>
-                </div>
-                <div class="window-title">Contact</div>
-            </div>
-            <div class="window-content">
-                <div class="contact-section">
-                    <h2>Let's Connect</h2>
-                    <p class="contact-intro">Feel free to reach out and connect with me on social media!</p>
-                    
-                    <div class="contact-links">
-                        <a href="https://www.instagram.com/maxm_1304" target="_blank" class="contact-link">
-                            <div class="contact-icon">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                    <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="23" cy="9" r="1.5" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <div class="contact-info">
-                                <div class="contact-label">Instagram</div>
-                                <div class="contact-value">@maxm_1304</div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://www.linkedin.com/in/maxence-mauge" target="_blank" class="contact-link">
-                            <div class="contact-icon">
-                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                                    <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M10 14v10M10 11v1M14 14v10M14 14c0-2 1-3 3-3s3 1 3 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <div class="contact-info">
-                                <div class="contact-label">LinkedIn</div>
-                                <div class="contact-value">Maxence Mauge</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Feel free to reach out and connect with me on social media!</p>
+                <div class="contact-links">
+                    <a href="https://www.instagram.com/maxm_1304" target="_blank" class="contact-link">
+                        <div class="contact-icon">
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>My Football Moments</h2>
+            <div class="modal-gallery">
+                <img src="images/IMG_6466.JPG" alt="Football team photo">
             </div>
         </div>
+    </div>
 
-        <!-- Football Gallery Window -->
-        <div class="window" id="football-gallery-window" data-window="football-gallery" style="display: none;">
-            <div class="window-header">
-                <div class="window-controls">
-                    <span class="control close" data-action="close"></span>
-                    <span class="control minimize" data-action="minimize"></span>
-                    <span class="control maximize" data-action="maximize"></span>
-                </div>
-                <div class="window-title">Football Gallery</div>
-            </div>
-            <div class="window-content">
-                <div class="gallery-section">
-                    <h2>My Football Moments</h2>
-                    <div class="photo-gallery">
-                        <div class="photo-item">
-                            <img src="images/IMG_6466.JPG" alt="Football team photo">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect x="4" y="4" width="24" height="24" rx="6" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="16" cy="16" r="5" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="23" cy="9" r="1.5" fill="currentColor"/>
+                            </svg>
                         </div>
-                    </div>
+                        <div class="contact-info">
+                            <div class="contact-label">Instagram</div>
+                            <div class="contact-value">@maxm_1304</div>
+                        </div>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/maxence-mauge" target="_blank" class="contact-link">
+                        <div class="contact-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M10 14v10M10 11v1M14 14v10M14 14c0-2 1-3 3-3s3 1 3 3v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-info">
+                            <div class="contact-label">LinkedIn</div>
+                            <div class="contact-value">Maxence Mauge</div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Dock -->
-    <div class="dock">
-        <div class="dock-item" data-window="about" title="About Me">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="20" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
-                <circle cx="24" cy="18" r="6" fill="#0066ff"/>
-                <path d="M12 38c0-6.6 5.4-12 12-12s12 5.4 12 12" fill="#0066ff"/>
-            </svg>
-            <span class="dock-label">About</span>
-        </div>
-        <div class="dock-item" data-window="interests" title="My Interests">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect x="8" y="8" width="32" height="32" rx="4" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
-                <path d="M16 20h16M16 24h16M16 28h10" stroke="#0066ff" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="dock-label">Interests</span>
-        </div>
-        <div class="dock-item" data-window="contact" title="Contact">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect x="8" y="12" width="32" height="24" rx="2" fill="#3a3a3a" stroke="#0066ff" stroke-width="2"/>
-                <path d="M8 12l16 12 16-12" stroke="#0066ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <span class="dock-label">Contact</span>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <script src="js/script.js"></script>
 </body>
